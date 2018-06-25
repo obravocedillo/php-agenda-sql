@@ -1,4 +1,7 @@
 https://github.com/obravocedillo/php-agenda-sql
 
-pagina
+pagina de prueba de la agenda funcional.
 https://mark2olivertest.000webhostapp.com/
+
+se uso la base de datos del hosting 000webhost la cual se administra con phpmyadmin.
+

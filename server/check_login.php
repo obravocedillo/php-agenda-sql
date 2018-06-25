@@ -18,7 +18,7 @@ try {
     $data['success'] = true;
     $data['msg'] = "OK";
 
-    $_SESSION["email"] = $user;
+
     echo json_encode($data);
 
    } else {
@@ -28,10 +28,12 @@ try {
 }
 catch(PDOException $e)
     {
-
+    if($e->errorInfo[1] === 1062){
+        echo 'Duplicate entry';
+    }else{
         echo $e;
-
     }
+}
 
     $conn = null;
 ?>

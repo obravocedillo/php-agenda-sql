@@ -17,6 +17,7 @@ class EventsManager {
           contentType: false,
           type: 'GET',
           success: (data) =>{
+              console.log(data);
             if (data.msg=="OK") {
 
 
@@ -41,7 +42,6 @@ class EventsManager {
         		center: 'title',
         		right: 'month,agendaWeek,basicDay'
         	},
-        	defaultDate: '2016-11-01',
         	navLinks: true,
         	editable: true,
         	eventLimit: true,
@@ -74,6 +74,7 @@ class EventsManager {
     }
 
     anadirEvento(){
+        console.log(document.getElementById('allDay').checked);
       var form_data = new FormData();
       form_data.append('titulo', $('#titulo').val())
       form_data.append('start_date', $('#start_date').val())
@@ -99,6 +100,7 @@ class EventsManager {
         success: (data) =>{
           if (data.msg=="OK") {
             alert('Se ha añadido el evento exitosamente')
+            location.reload();
             if (document.getElementById('allDay').checked) {
               $('.calendario').fullCalendar('renderEvent', {
                 title: $('#titulo').val(),
@@ -119,6 +121,7 @@ class EventsManager {
 
           }else {
             alert(data.msg)
+
           }
         },
         error: function(){
@@ -205,7 +208,6 @@ $(function(){
   initForm();
   var e = new EventsManager();
   $('form').submit(function(event){
-
     event.preventDefault()
     e.anadirEvento()
   })

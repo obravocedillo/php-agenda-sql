@@ -30,6 +30,7 @@ class Login {
       success: function(php_response){
           console.log(php_response);
         if (php_response.msg == "OK") {
+            sessionStorage.setItem("email",php_response.email );
             window.location.href = 'main.html';
         }else {
           alert(php_response.msg);
